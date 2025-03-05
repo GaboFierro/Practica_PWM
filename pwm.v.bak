@@ -1,0 +1,39 @@
+module pwm(
+
+input pb_inc, pb_dec, clk, rst,
+
+output pwm_out
+
+);
+
+wire neg_pb_in = ~pb_inc;
+wire neg_pg_dec = ~pb_dec;
+wire slow_clock;
+wire debounced_pb_in;
+wire debounced_pb_dec;
+
+reg [31:0] DC;
+
+parameter base_freq= 'd50_000_000;
+parameter target_freq= '5d0;
+parameter counts = base_freq/target_freq;
+
+clk_divider U1( clk, rst, slow_clock);
+
+debouncer d0(neg_pb_inc, slow_clk, rst, debounced_pb_in);
+debouncer d1(neg_pb_dec, slow_clk, rst, debounced_pb_dec);
+
+
+always@ (posedge slow_clk or negedge rst)
+begin 
+
+if(debounced_pb_dec):
+
+DC<=DC-x;
+
+
+end
+
+
+endmodule
+
