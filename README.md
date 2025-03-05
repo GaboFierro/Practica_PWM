@@ -5,13 +5,15 @@ Este proyecto implementa un sistema en Verilog que combina un debouncer y un con
 
 ⚙️ Requisitos
 
-Quartus Prime (Intel FPGA)
+Tarjeta FPGA DE10-Lit
 
-FPGA compatible
+Software Intel Quartus Prime Lite
 
-Cable USB Blaster para programación
+Servomotor compatible con señal PWM (ejemplo: SG90, MG995)
 
-Programa de simulación Verilog
+Fuente de alimentación externa para el servomotor (5V)
+
+Conexiones de cables jumper
 
 📂 Estructura del Proyecto
 
